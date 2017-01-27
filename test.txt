@@ -1,0 +1,58 @@
+#Lancer PowerShell en mode Admin
+iwr https://chocolatey.org/install.ps1 -UseBasicParsing | iex
+choco upgrade chocolatey
+
+#Installer vagrant et virtualbox
+cinst vagrant virtualbox
+
+#Installer cygwin
+choco install cyg-get
+#Redemarrer PowerShell pour que cygwin soit ajouter au path
+cyg-get openssh
+cyg-get rsync
+cyg-get ncurses
+
+#Lancer cygwin 64bits Terminal
+# repertoire /home/ de cygwin = repertoire C:\cygwin64\home\user
+
+vagrant -v
+vboxmanage -v
+mkdir ubuntu
+cd ubuntu/
+vagrant init hashicorp/precise32
+vagrant up
+
+#Vous etes maintenant connecter � votre machine
+uname -a
+exit
+
+#retour sur la machine host
+vboxmanage list runningvms
+#Changer le fichier vagrantFile d�commenter le bloc contenant vb.gui = true
+vagrant reload
+
+#L'interieur de la machine pointe sur /vagrant/, les r�pertoires seront partager avec le dossier contenant l'image
+
+#suspendre une machine
+vagrant suspend
+vagrant resume
+
+#fermer une vm
+vagrant halt
+vagrant up
+
+#Lister vms
+VBoxManage.exe list vms
+
+#Detruire vm
+vagrant destroy
+
+#Regarder les log
+vagrant status
+export VAGRANT_LOG=debug
+vagrant status
+
+
+
+
+

@@ -1,0 +1,13 @@
+#PowerShell en mode Admin
+iwr https://chocolatey.org/install.ps1 -UseBasicParsing | iex
+choco upgrade chocolatey
+
+cinst vagrant virtualbox
+choco install cyg-get
+#fermer PowerShell et ouvrir un nouveau pour mettre à jour le path de cygwin
+
+cyg-get openssh
+cyg-get rsync
+cyg-get ncurses
+
+#Executer cygwin 64bits Terminal et tester ssh & rsync
