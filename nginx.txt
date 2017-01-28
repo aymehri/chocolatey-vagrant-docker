@@ -1,0 +1,5 @@
+vagrant init hashicorp/precise32 --minimal
+vagrant up
+
+#Changer le contenu de vagrant file et reload
+vagrant reload
