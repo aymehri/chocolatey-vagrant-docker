@@ -8,3 +8,9 @@ vagrant provision
 vagrant ssh
 service nginx status
 wget -qO- localhost
+
+#A l'interieur de la vm copier le contenu dans notre host
+cp -r /usr/share/nginx/www /vagrant/www
+
+vagrant destroy -f
+vagrant up
